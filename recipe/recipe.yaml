@@ -16,6 +16,8 @@ build:
     overlinking_behavior: error
     overdepending_behavior: error
   script:
+    - export LD_LIBRARY_PATH="$PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+    - export DYLD_LIBRARY_PATH="$PREFIX/lib${DYLD_LIBRARY_PATH:+:$DYLD_LIBRARY_PATH}"
     - >-
       PYTHON="$BUILD_PREFIX/bin/python" ./configure
       --prefix="$PREFIX" --libdir="$PREFIX/lib"
